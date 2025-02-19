@@ -20,15 +20,15 @@ jobs:
                 cache-dependency-path: codebase/rdicidr-0.1.0/package-lock.json    
                 
           - name: Run ESLint
-            run: yarn lint
+            run: yarn codebase/rdicidr-0.1.0/lint
 
           - name: Run Prettier
-            run: yarn prettier
+            run: yarn codebase/rdicidr-0.1.0/prettier
 
           - name: Run Jest tests
             run: CI=true yarn src/tests/test
 
           - name: Build project
-            run: yarn build                
+            run: yarn codebase/rdicidr-0.1.0/build                
                 
             
