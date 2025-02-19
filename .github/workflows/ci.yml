@@ -13,8 +13,9 @@ jobs:
             uses: actions/setup-node@v4
             with:
                 node-version: '15'
-                cache: 'npm'  
-                cache-dependency-path: ~/codebase/rdicidr-0.1.0/package-lock.json
+                # cache: 'npm'  
+                cache: ${{ hashFiles('**/package-lock.json') && 'npm' || null }}
+                cache-dependency-path: codebase/rdicidr-0.1.0/package-lock.json
           - name: Install dependencies
             run: npm install        
           
