@@ -7,14 +7,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Checkout code
-            uses: actions/Checkout@v2        
-            
+            uses: actions/Checkout@v4        
+
+          - name: Install dependencies
+            run: npm install  
+
           - name: Install node
-            uses: actions/setup-node@v2
+            uses: actions/setup-node@v4
             with:
                 node-version: '15'
                 cache: 'npm'  
-                cache-dependency-path: codebase/rdicidr-0.1.0/package-lock.json
-          - name: Install dependencies
-            run: npm install        
+                # cache-dependency-path: codebase/rdicidr-0.1.0/package-lock.json        
           
