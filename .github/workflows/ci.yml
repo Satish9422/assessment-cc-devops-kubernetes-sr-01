@@ -8,10 +8,13 @@ jobs:
         steps:
           - name: Checkout code
             uses: actions/Checkout@v4        
+           
+          - name: Debug package-lock.json path
+            run: ls -la codebase/rdicidr-0.1.0   
             
           - name: Install node
             uses: actions/setup-node@v4
             with:
                 node-version: '15'
                 cache: 'npm'  
-                # cache-dependency-path: codebase/rdicidr-0.1.0/package-lock.json
+                cache-dependency-path: codebase/rdicidr-0.1.0/package-lock.json
