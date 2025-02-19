@@ -25,3 +25,10 @@ jobs:
             run: |
               cd codebase/rdicidr-0.1.0
               npm run lint    
+
+          - name: Run Prettier
+            run: |
+              cd codebase/rdicidr-0.1.0
+              npm run prettier    
+
+              
