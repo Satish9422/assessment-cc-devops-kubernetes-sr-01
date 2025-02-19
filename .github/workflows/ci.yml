@@ -8,6 +8,10 @@ jobs:
         steps:
           - name: Checkout code
             uses: actions/Checkout@v4
+
+          - name: Debug package-lock.json path
+            run: ls -R
+            working-directory: codebase/rdicidr-0.1.0           
             
           - name: Install node
             uses: actions/setup-node@v4
