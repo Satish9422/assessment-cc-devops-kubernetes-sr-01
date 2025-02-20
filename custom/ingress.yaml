@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: fsl-challenge.me  
+    - host: "fsl-challenge.me"  
       http:
         paths:
           - path: /
