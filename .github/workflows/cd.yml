@@ -4,7 +4,7 @@ on:
         branches: main
 jobs:
     CD:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
           - name: Checkout code
             uses: actions/Checkout@v4
@@ -19,15 +19,8 @@ jobs:
               docker tag fullstack:latest satish680/fullstack:latest
               docker push satish680/fullstack:latest  
               
-          - name: Deploy to Minikube via SSH
-            uses: appleboy/ssh-action@master
-            with:
-              host: ${{ secrets.SSH_HOST }}
-              username: ${{ secrets.SSH_USER }}
-              key: ${{ secrets.SSH_PRIVATE_KEY }}
-              script: |
-                cd /home/satish/fullstack/assessment-cc-devops-kubernetes-sr-01
-                git pull
+          - name: Deploy to Minikube
+            run: |
                 minikube start --memory=2500
                 kubectl apply -f custom/deployment.yaml
                 kubectl apply -f custom/ingress.yaml    
