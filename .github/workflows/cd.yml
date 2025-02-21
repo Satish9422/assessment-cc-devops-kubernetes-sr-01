@@ -22,6 +22,6 @@ jobs:
           - name: Deploy to Minikube
             run: |
                 minikube start --memory=2500
-                kubectl apply -f custom/secret.yaml
+                # kubectl apply -f custom/secret.yaml
                 kubectl apply -f custom/deployment.yaml
                 kubectl apply -f custom/ingress.yaml    
